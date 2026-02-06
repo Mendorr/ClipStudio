@@ -1,0 +1,118 @@
+\documentclass[12pt]{report}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, 
+            top=1.2in,
+            bottom=.9in,
+            right=.8in,
+            left=.8in,
+            nomarginpar,
+            headheight=20mm,
+            ]{geometry}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{xcolor,colortbl}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage[none]{hyphenat}
+\usepackage{arydshln}
+\usepackage{comment}
+\usepackage{lipsum}
+\usepackage{minted}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\renewcommand\familydefault{\sfdefault}
+\renewcommand{\bibname}{Referencias}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\baselinestretch}{1.25} 
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\headrulewidth}{0em}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.3em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}\fancyfoot{}
+\fancyhead[L]{PIM Grado I.I.I. Software}
+\fancyhead[R]{Proyecto}
+\fancyfoot[C]{Página \thepage \thinspace de \pageref{LastPage}}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+\fancyhead{}\fancyfoot{}
+\fancyhead[L]{PIM Grado I.I.I. Software}
+\fancyhead[R]{Proyecto}
+\fancyfoot[C]{Página \thepage \thinspace de \pageref{LastPage}}
+}
+
+\usemintedstyle{monoka}
+\AfterEndEnvironment{minted}{\vspace{-3.5em}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    citecolor=blue,
+    }
+
+%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%% 
+\title{ {\normalsize \bf Procesamiento de la Información Multimedia (PIM) \\ \vspace{-1.25em} 
+Grado en Ingeniería Informática en Ingeniería del Software} \\ \vspace{1.25em}
+        {\Huge \bf Título del Proyecto}
+      }
+\author{
+  Apellido1 Apellido2, Nombre\\
+  \texttt{id-correo-UEx@alumnos.unex.es}
+  \and
+  Apellido1 Apellido2, Nombre\\
+  \texttt{id-correo-UEx@alumnos.unex.es}
+}
+\date{v1.0}
+%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%% 
+
+\begin{document}
+
+  % Portada
+    \maketitle
+
+    % Control de versiones
+    \input{0-control-de-versiones}
+    \newpage
+
+    % Índice
+    \thispagestyle{fancy}
+    \tableofcontents
+    \newpage
+    % 1. Introducción
+    \input{1-Introduccion}
+    
+    % 2. Alcance y objetivos
+    \input{2-Alcance-y-objetivos}
+    
+    % 3. Estado del arte
+    \input{3-Estado-del-arte}
+    
+    % 4. Entornos y herramientas
+    \input{4-Entornos-y-herramientas}
+    
+    % 5. Actividades
+    \input{5-Actividades}
+    
+    % 6. Actividades adicionales
+    \input{6-Actividades-adicionales}
+    
+    % 7. Conclusiones
+    \input{7-Conclusiones}
+    
+    % 8. Referencias
+    \input{8-Referencias}
+
+\end{document}
