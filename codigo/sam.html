@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro VIGILANCIA · ¿El Punisher en la ciudad?</title>
+    <!-- Font Awesome 6 (iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Fuente tipografía foro/retro -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c0e;
+            background-image: radial-gradient(circle at 15% 30%, rgba(30, 30, 30, 0.7) 0%, transparent 30%),
+                              radial-gradient(circle at 85% 70%, rgba(20, 20, 20, 0.8) 0%, transparent 40%),
+                              repeating-linear-gradient(45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 2px, 
+                              rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 6px);
+            font-family: 'Inter', sans-serif;
+            color: #d9dadb;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* cabecera estilo vigilancia/foro */
+        .forum-header {
+            background: #030405;
+            border: 1px solid #2f3a47;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7), inset 0 0 0 1px #3a4a5a;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-radius: 4px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title i {
+            font-size: 2.2rem;
+            color: #a0b6c9;
+            text-shadow: 0 0 6px #1e90ff;
+        }
+
+        .header-title h1 {
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 600;
+            font-size: 1.9rem;
+            letter-spacing: -1px;
+            color: #ebf5ff;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px #1e3a4e;
+        }
+
+        .cam-badge {
+            background: #151e24;
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid #3e5a6a;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #bfd7e3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: inset 0 0 6px black;
+        }
+
+        .cam-badge i {
+            color: #7aa3b8;
+        }
+
+        /* Hilo principal */
+        .thread-container {
+            background: #0e1215;
+            border: 1px solid #1e2c34;
+            border-radius: 12px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px -8px black;
+        }
+
+        .post {
+            display: flex;
+            padding: 22px 25px;
+            border-bottom: 1px solid #1e2a30;
+            position: relative;
+        }
+
+        .post:last-child {
+            border-bottom: none;
+        }
+
+        /* Columna izquierda: avatar/usuario */
+        .user-area {
+            min-width: 150px;
+            max-width: 170px;
+            margin-right: 25px;
+            border-right: 1px dashed #2a3b44;
+            padding-right: 20px;
+        }
+
+        .avatar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .avatar i {
+            font-size: 1.8rem;
+            color: #7c8a92;
+        }
+
+        .username {
+            font-weight: 700;
+            color: #c8dbe4;
+            letter-spacing: -0.2px;
+        }
+
+        .user-title {
+            font-size: 0.75rem;
+            color: #8499a6;
+            text-transform: uppercase;
+            background: #1d262c;
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-top: 5px;
+            border: 1px solid #2e4a55;
+        }
+
+        .post-meta {
+            font-size: 0.75rem;
+            color: #6a808b;
+            margin-top: 10px;
+        }
+
+        .post-meta i {
+            width: 18px;
+            color: #546e7a;
+        }
+
+        /* Columna derecha: contenido del post */
+        .post-content {
+            flex: 1;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            color: #b0c5ce;
+            font-size: 0.85rem;
+        }
+
+        .post-number {
+            color: #4e6977;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .post-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ced9df;
+            margin-bottom: 20px;
+        }
+
+        .post-text i {
+            color: #a0becb;
+            margin-right: 5px;
+        }
+
+        /* ----- GALERÍA VIGILANCIA (BN) ----- */
+        .surveillance-grid {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            background: #0b0f11;
+            padding: 15px 15px 8px 15px;
+            border-radius: 12px;
+            border: 1px solid #26343b;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+        }
+
+        .cam-frame {
+            background: #060809;
+            border: 1px solid #3b4f59;
+            padding: 8px;
+            border-radius: 6px;
+            box-shadow: 0 0 0 1px #1a1e20, 0 6px 10px black;
+            position: relative;
+            width: 170px;
+        }
+
+        .cam-img {
+            width: 100%;
+            height: 120px;
+            background: #0e1316;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #2e414a;
+            position: relative;
+        }
+
+        .cam-img i {
+            font-size: 3.3rem;
+            color: #4d6a76;
+            opacity: 0.9;
+            text-shadow: 0 0 6px black;
+        }
+
+        .cam-img span {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.6rem;
+            color: #7c99a8;
+            background: #0a1216;
+            padding: 2px 6px;
+            margin-top: 6px;
+            border: 1px solid #2f4e5a;
+            border-radius: 2px;
+        }
+
+        .cam-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            font-size: 0.65rem;
+            color: #869ca7;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .cam-label i {
+            color: #a1b7c2;
+            font-size: 0.7rem;
+        }
+
+        .timestap {
+            color: #56717e;
+            letter-spacing: 1px;
+        }
+
+        /* Efecto lineas vigilancia (como barrido) */
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scanlines::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0px, rgba(255,255,255,0.02) 1px, transparent 3px);
+            pointer-events: none;
+        }
+
+        /* post signature o footer */
+        .post-footer {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            font-size: 0.75rem;
+            color: #60747e;
+            border-top: 1px solid #1e2d33;
+            padding-top: 12px;
+        }
+
+        .post-footer i {
+            margin-right: 6px;
+            color: #4f6a78;
+        }
+
+        /* barra de respuesta rápida (estilo foro) */
+        .quick-reply {
+            background: #0f1519;
+            border: 1px solid #25343c;
+            border-radius: 30px;
+            padding: 12px 25px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #8199a3;
+            font-size: 0.9rem;
+        }
+
+        .quick-reply i {
+            color: #728f9b;
+        }
+
+        .footer-forum {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #4c626c;
+            border-top: 1px solid #1b262c;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .post {
+                flex-direction: column;
+            }
+            .user-area {
+                border-right: none;
+                border-bottom: 1px dashed #2f424b;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabecera con estética vigilancia / Punisher (guiño) -->
+        <header class="forum-header">
+            <div class="header-title">
+                <i class="fas fa-user-secret"></i>
+                <h1>VIGILANCIA NO OFICIAL</h1>
+            </div>
+            <div class="cam-badge">
+                <i class="fas fa-video"></i> CAMS ACTIVAS · 23:47 EST
+                <i class="fas fa-shield-alt" style="margin-left: 10px; color: #afc9d4;"></i>
+            </div>
+        </header>
+
+        <!-- Hilo principal: avistamiento Punisher -->
+        <div class="thread-container">
+            <!-- POST 1 - Avistamiento original -->
+            <div class="post">
+                <div class="user-area">
+                    <div class="avatar">
+                        <i class="fas fa-user-ninja"></i>
+                        <span class="username">Night_Owl</span>
+                    </div>
+                    <span class="user-title"><i class="fas fa-eye"></i> VIGILANTE #1</span>
+                    <div class="post-meta">
+                        <div><i class="fas fa-calendar-alt"></i> 12/02/2026</div>
+                        <div><i class="fas fa-clock"></i> 03:14 am</div>
+                        <div><i class="fas fa-comment"></i> 14 respuestas</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-number">#1  ◆  HILO OFICIAL: POSIBLE AVISTAMIENTO PUNISHER (ZONA INDUSTRIAL)</span>
+                        <span><i class="fas fa-flag"></i> reportar</span>
+                    </div>
+                    <div class="post-text">
+                        <i class="fas fa-crosshairs" style="color:#b33e3e;"></i>  
+                        Esta madrugada, cámaras de seguridad del polígono captaron a un individuo con un chaleco táctico, cráneo blanco muy marcado. No es la primera vez. 
+                        Andaba entre las sombras, parecía revisar contenedores. No se ven bien los rasgos, pero la calavera en el pecho... inconfundible. 
+                        Dejo capturas de las cámaras (fuente anónima). <span style="color:#9fc7d6;">#Punisher #JusticiaCallejera</span>
+                    </div>
+
+                    <!-- FOTOS CÁMARA VIGILANCIA B/N (estilo vigilancia, 4 imágenes) -->
+                    <div class="surveillance-grid">
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-camera"></i>
+                                <span>CAM 07 - 02:41:23</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-skull"></i> SILUETA</span>
+                                <span class="timestap">⏲ 02:41:23</span>
+                            </div>
+                            <div style="font-size: 0.6rem; margin-top: 4px; color: #7f9faa;">[B/N] contraste alto</div>
+                        </div>
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-video"></i>
+                                <span>CAM 12 - 02:43:17</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-user-shield"></i> CALAVERA</span>
+                                <span class="timestap">⏲ 02:43:17</span>
+                            </div>
+                            <div style="font-size: 0.6rem; margin-top: 4px; color: #7f9faa;">movimiento detectado</div>
+                        </div>
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-film"></i>
+                                <span>CAM 04 - 02:55:06</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-tshirt"></i> CHALECO</span>
+                                <span class="timestap">⏲ 02:55:06</span>
+                            </div>
+                            <div style="font-size: 0.6rem; margin-top: 4px; color: #7f9faa;">infrarrojo activo</div>
+                        </div>
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-cctv"></i>
+                                <span>CAM 19 - 03:02:01</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-mask"></i> PERFIL</span>
+                                <span class="timestap">⏲ 03:02:01</span>
+                            </div>
+                            <div style="font-size: 0.6rem; margin-top: 4px; color: #7f9faa;">encuadre trasero</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: #a1b8c2; margin-bottom: 6px;">
+                        <i class="fas fa-shield-hacked"></i> Las imágenes han sido realzadas, pero el origen es CCTV en blanco y negro. Zona portuaria.
+                    </div>
+                    <div class="post-footer">
+                        <span><i class="fas fa-reply"></i> Responder</span>
+                        <span><i class="fas fa-share"></i> Compartir</span>
+                        <span><i class="fas fa-exclamation-triangle"></i> Reportar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST 2 - Comentario usuario: CazadorNocturno -->
+            <div class="post">
+                <div class="user-area">
+                    <div class="avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                        <span class="username">CazadorNocturno</span>
+                    </div>
+                    <span class="user-title"><i class="fas fa-gun"></i> JUSTICIERO</span>
+                    <div class="post-meta">
+                        <div><i class="fas fa-calendar-alt"></i> 12/02/2026</div>
+                        <div><i class="fas fa-clock"></i> 04:52 am</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-number">#2</span>
+                        <span><i class="fas fa-reply-all"></i> respuesta rápida</span>
+                    </div>
+                    <div class="post-text">
+                        <i class="fas fa-skull" style="color:#8fafbf;"></i>  
+                        Coincido, ese cráneo no es un parche cualquiera. Yo estaba cerca del puente, sobre las 2 am, y noté una figura en una grúa. 
+                        No pude fotografiar, pero el hombre llevaba un emblema blanco. Se movía con precisión militar. Si es él, algo grande se está cociendo. 
+                        Las fotos de las cámaras son legítimas, conozco ese ángulo. 
+                    </div>
+                    <!-- TAMBIÉN AGREGA UNA IMAGEN DE CÁMARA (estilo) -->
+                    <div style="display: flex; margin-top: 15px;">
+                        <div class="cam-frame scanlines" style="width: 200px;">
+                            <div class="cam-img">
+                                <i class="fas fa-camera-retro"></i>
+                                <span>CAM PUENTE - 02:12</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-user"></i> SOMBRA</span>
+                                <span class="timestap">⏲ 02:12:40</span>
+                            </div>
+                        </div>
+                        <span style="margin-left: 15px; font-size: 0.8rem; color: #9eb1ba; align-self: center;">
+                        <i class="fas fa-arrow-left"></i> captura personal (movil) 
+                        </span>
+                    </div>
+                    <div class="post-footer">
+                        <span><i class="fas fa-reply"></i> Responder</span>
+                        <span><i class="fas fa-thumbs-up"></i> 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST 3 - Esceptico, pero con fotos de vigilancia -->
+            <div class="post">
+                <div class="user-area">
+                    <div class="avatar">
+                        <i class="fas fa-user-hacker"></i>
+                        <span class="username">Data_Overlord</span>
+                    </div>
+                    <span class="user-title"><i class="fas fa-database"></i> ANALISTA</span>
+                    <div class="post-meta">
+                        <div><i class="fas fa-calendar-alt"></i> 12/02/2026</div>
+                        <div><i class="fas fa-clock"></i> 06:10 am</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-number">#3</span>
+                    </div>
+                    <div class="post-text">
+                        <i class="fas fa-chart-line"></i>  
+                        No termino de verlo claro. El símbolo podría ser de las fuerzas especiales, hay patches similares. Pero estas capturas... 
+                        Hay algo raro. Amplié la cámara 07 y el cráneo parece tener un borde rojo (en B/N se ve oscuro). ¿Podría ser un imitador?
+                        Aún así, dejo otra imagen que me pasaron de un CCTV de un estacionamiento, misma noche. Mismo tipo de pechera.
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-camera"></i>
+                                <span>PARKING LVL2</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-person-walking"></i> INDIVIDUO</span>
+                                <span class="timestap">01:58</span>
+                            </div>
+                        </div>
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-camera"></i>
+                                <span>PARKING LVL3</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-vest"></i> CALAVERA</span>
+                                <span class="timestap">02:01</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-footer">
+                        <span><i class="fas fa-reply"></i> Responder</span>
+                        <span><i class="fas fa-chart-simple"></i> Análisis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST 4 - Testigo directo, aporta otra camara -->
+            <div class="post">
+                <div class="user-area">
+                    <div class="avatar">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="username">Frankencito</span>
+                    </div>
+                    <span class="user-title"><i class="fas fa-shield"></i> CREYENTE</span>
+                    <div class="post-meta">
+                        <div><i class="fas fa-calendar-alt"></i> 12/02/2026</div>
+                        <div><i class="fas fa-clock"></i> 08:34 am</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-number">#4</span>
+                    </div>
+                    <div class="post-text">
+                        <i class="fas fa-ribbon"></i>  
+                        Yo lo vi. No es un marine random, es EL PUNISHER. La calavera es enorme, y el tipo debe medir 1.90. Iba armado, se notaba el bulto en la espalda. 
+                        No le pude ver la cara del todo, pero su actitud... da miedo. Trabajo en seguridad, y he visto cientos de horas de vigilancia. Este es él.
+                        Revisé las cintas de las 2am, aquí adjunto fotograma.
+                    </div>
+                    <div class="surveillance-grid" style="margin-top: 8px; max-width: 400px;">
+                        <div class="cam-frame scanlines">
+                            <div class="cam-img">
+                                <i class="fas fa-person-rifle"></i>
+                                <span>CAM 21 - 02:22:44</span>
+                            </div>
+                            <div class="cam-label">
+                                <span><i class="fas fa-crosshairs"></i> PERFIL ARMAS</span>
+                                <span class="timestap">02:22:44</span>
+                            </div>
+                            <div style="font-size: 0.6rem;">CALAVERA VISIBLE</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 12px; background: #101a1e; padding: 8px; border-left: 3px solid #7f9aa5;">
+                        <i class="fas fa-triangle-exclamation"></i> Si de verdad es Castle, que alguien avise a la policía... o mejor no. 
+                    </div>
+                    <div class="post-footer">
+                        <span><i class="fas fa-reply"></i> Responder</span>
+                        <span><i class="fas fa-flag"></i> 3 reportes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST 5 - Moderador / cierra el hilo momentáneamente -->
+            <div class="post" style="background: #0c151b;">
+                <div class="user-area">
+                    <div class="avatar">
+                        <i class="fas fa-user-crown"></i>
+                        <span class="username">VIGILANTE_ADMIN</span>
+                    </div>
+                    <span class="user-title"><i class="fas fa-ban"></i> MODERADOR</span>
+                    <div class="post-meta">
+                        <div><i class="fas fa-calendar-alt"></i> 12/02/2026</div>
+                        <div><i class="fas fa-clock"></i> 09:47 am</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-header">
+                        <span class="post-number">#5 · MOD</span>
+                    </div>
+                    <div class="post-text" style="color: #cbdbe3;">
+                        <i class="fas fa-scale-balanced"></i>  
+                        Se mantiene el hilo abierto porque hay suficiente material gráfico. Pero ojo, no queremos doxxear a nadie. 
+                        Las fotos de las cámaras en blanco y negro son válidas y no muestran rostros claros. Mantened el civismo. 
+                        Por ahora parece un cosplayer táctico, pero no bajamos la guardia. 
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center; margin-top: 8px;">
+                        <i class="fas fa-shield" style="color: #b1cbd6;"></i>
+                        <span style="font-size: 0.8rem;">Si tenéis más capturas de cámaras, enviadlas por MP con metadatos.</span>
+                    </div>
+                    <div class="post-footer">
+                        <span><i class="fas fa-lock"></i> Moderado</span>
+                        <span><i class="fas fa-check-circle"></i> Verificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de respuesta rápida (fake) -->
+        <div class="quick-reply">
+            <span><i class="fas fa-pen-to-square"></i> Responder a este hilo...</span>
+            <span><i class="fas fa-image"></i> <i class="fas fa-video"></i> <i class="fas fa-file-lines"></i></span>
+        </div>
+
+        <!-- Footer con estadísticas de la "vigilancia" -->
+        <footer class="footer-forum">
+            <i class="fas fa-shield-halig"></i> FORO NO OFICIAL · LAS IMÁGENES DE CCTV SON SIMULADAS CON FINES ILUSTRATIVOS · 
+            <span style="color: #9fbaca;">“USTED ESTÁ SIENDO VIGILADO”</span>
+            <div style="margin-top: 10px; letter-spacing: 3px;">
+                <i class="fas fa-circle" style="color: #3e6f7a; font-size: 0.5rem;"></i> <i class="fas fa-circle" style="color: #3e6f7a; font-size: 0.5rem;"></i> <i class="fas fa-circle" style="color: #3e6f7a; font-size: 0.5rem;"></i>
+            </div>
+        </footer>
+    </div>
+
+    <!-- pequeño efecto scanline global (opcional) -->
+    <div style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(255,255,255,0.01) 1px, transparent 3px); z-index: 9999;"></div>
+</body>
+</html>
