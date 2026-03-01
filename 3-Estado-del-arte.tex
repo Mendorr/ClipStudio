@@ -110,6 +110,49 @@ Tambien popular en esta clase de producciones es el uso del \textbf{CGI (Compute
 
  En conclusión, la creación y edición de vídeo constituyen un campo interdisciplinar que integra fundamentos técnicos del procesamiento digital de la imagen y el sonido con toda clase de fines. A lo largo del desarrollo tecnológico, herramientas como el montaje no lineal, el CGI, el chroma key o los sistemas de producción virtual han ampliado de forma significativa las posibilidades creativas del medio. No obstante, este ámbito esta sujeto a las limitaciones técnicas y operativas, tales como la alta demanda de recursos computacionales, la necesidad de hardware especializado, la complejidad de los flujos de trabajo y la constante actualización tecnológica que exige formación continua. Asimismo, la evolución de la producción audiovisual implica la aparición de múltiples perfiles profesionales especializados —editores, coloristas, técnicos de sonido, artistas de VFX, animadores 3D o supervisores de postproducción— que trabajan de forma coordinada en entornos colaborativos. Y con la llegada de la IA, se abren muchas posibilidades y cambios por llegar a este sector. En este contexto, el conocimiento de los fundamentos teóricos y técnicos analizados en el presente estado del arte resulta esencial para comprender los procesos implicados en la creación de contenido audiovisual y para abordar con rigor el desarrollo del proyecto planteado.
 
+\subsection{Investigaciones recientes}
+En el ámbito académico y de investigación, cabe destacar ciertos proyectos en desarrollo que 
+generan día a día una nueva manera de pensar y desarrollar herramientas para la creación y edición 
+de vídeo.
+
+Uno de los más influyentes actualmente es el trabajo \textit{Investigating the Effectiveness 
+of Cross-Attention to Unlock Zero-Shot Editing of Text-to-Video Diffusion Models}, analizando el papel 
+de las capas de atención cruzada (véase Figura~\ref{fig:atencion-cruzada}) en modelos de difusión-texto-a-video (T2V) y estudia si las 
+técnicas de edición desarrolladas previamente en el dominio texto-a-imagen pueden transladarse al formato 
+de vídeo sin necesidad de reentrenamiento de los modelos. 
+
+El atrículo divulgativo parte de la idea de que, en modelos texto-a-imagen, la atención cruzada desempeña 
+un papel fundamental en la determinación de la forma, el tamaño y la localización de los objetos, además de 
+garantizar coherencia en los prompts textuales. A partir de esa base, los autores investigan si la 
+manipulación de mapas de atención cruzada (véase Figura~\ref{fig:atencion-cruzada}) en modelos T2V permiten controlar atributos 
+como el tamaño, la posición o el movimiento de un objeto dentro del vídeo generado.
+
+Se exploran diferentes estrategias de entrenamiento como la \textbf{orientación futura} y la 
+\textbf{orientación pasada} (véase Figura~\ref{fig:orientación pasada}), permitiendo mediante instrucciones 
+forzar el ajuste de un objeto en una imagen o el movimiento del mismo, modificando la atención sin alterar la arquitectura del modelo 
+(más información), concluyendo el estudio en que la atención cruzada 
+consitituye un mecanismo clave, habilitando la capacidad de un \textbf{modelo texto-a-video} para editar texto, imágenes 
+o vídeos siguiendo instrucciones (\textit{prompts}) directod, sin haber sido entrenado específicamente 
+para ello. El trabajo sienta así las bases para futuras investigaciones orientadas a mejorar la 
+precisión de los mapas de atención y ampliar las capacidades de edición controlada en generación 
+de vídeo mediante difusión \cite{Motamed_2024_CVPR}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/atencion-cruzada.png}
+    \caption{Representación visual del concepto \textbf{atención cruzada}}
+    \label{fig:atencion-cruzada}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/orientacion-pasada.png}
+    \caption{Representación visual del concepto \textbf{orientación pasada}}
+    \label{fig:orientación pasada}
+\end{figure}
+
+\subsection{Fuentes}
+
 \subsection{Fuentes}
 \begin{itemize}
 
