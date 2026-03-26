@@ -17,6 +17,125 @@ Otros conceptos fundamentales son la \textbf{relación de aspecto}, que define l
 
  En esta figura, se pueden observar las resoluciones más comunes. Desde 360p que en su día era considerado como HD (High Definition) hasta resoluciones más modernas como el 4K o el 8k, las cuales no son visibles en todas las pantallas.
 
+\subsection{\textcolor{pim}{Formatos de vídeo}}
+
+\textcolor{pim}{Un aspecto técnico a tener en cuenta es la gestión de formatos. Lo que 
+coloquialmente se denomina ``archivo de vídeo'' es una estructura compleja que agrupa 
+diversos tipos de datos en un solo bloque. Es necesario comprender y diferenciar los conceptos relacionados con: 
+\textbf{contenedor} (o encapsulamiento) y \textbf{códec}}.
+
+\textcolor{pim}{Esta división es a menudo malinterpretada, asumiendo que la extensión del archivo 
+(por ejemplo, .mp4 o .avi) define por completo su formato y calidad. En realidad, la extensión solo 
+identifica al contenedor, mientras que los datos audiovisuales que alberga en su interior están regidos 
+por sus respectivos códecs}.
+
+\subsubsection{\textcolor{pim}{Los Códecs}}
+
+\textcolor{pim}{La palabra ``códec'' es un acrónimo de los términos ``compresor/descompresor'' 
+(o codificador/decodificador). Un archivo de vídeo, contiene una cantidad masiva de datos 
+(imágenes, audio, metadatos, entre otros). El trabajo del códec es codificar y comprimir estos datos originados por 
+la cámara para reducir el espacio de almacenamiento necesario, minimizando colores, reduciendo resoluciones 
+o fusionando datos similares. Posteriormente, durante la reproducción o edición, el mismo algoritmo decodifica 
+y descomprime la información (véase Figura~\ref{fig:codec})}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{assets/codec.jpeg}
+    \caption{Funcionamiento general Códec}
+    \label{fig:codec}
+\end{figure}
+
+\textcolor{pim}{Los códecs presentan diferentes métodos de compresión:}
+
+\begin{itemize}
+    \item \textcolor{pim}{\textbf{Con pérdida (Lossy):} El algoritmo elimina o fusiona información de 
+    forma irreversible para reducir drásticamente el peso del archivo. La calidad disminuye progresivamente 
+    con cada renderizado o edición posterior.}
+    \item \textcolor{pim}{\textbf{Sin pérdida (Lossless):} Almacena los datos conservando las propiedades 
+    del archivo original. Genera una calidad superior en función de archivos con un tamaño y peso 
+    considerablemente mayores.}
+\end{itemize}
+
+\textcolor{pim}{Entre los códecs más relevantes en la industria actual destacan~\cite{tipo-formato-arch}:}
+
+\begin{itemize}
+    \item \textcolor{pim}{\textbf{H.264:} Es el estándar en la actualidad. Permite una calidad de Alta Definición 
+    (HD) e incluso 4K, ofreciendo una multitud de opciones de compresión. Es el códec más recomendado para 
+    plataformas de distribución masiva de archivos multimedia, como YouTube.}
+    \item \textcolor{pim}{\textbf{H.265 (HEVC - High Efficiency Video Coding):} Diseñado como sucesor 
+    del H.264. Su principal ventaja es la optimización del ratio peso/calidad, 
+    aspecto fundamental para la distribución de contenido en entornos digitales saturados 
+    (p.ej, Redes Sociales y Plataformas de contenido, entre otros).}
+    \item \textcolor{pim}{\textbf{Apple ProRes:} Formato en propiedad de Apple con prestaciones de 
+    compresión similares al H.264, pero orientado a la edición profesional. Ofrece soporte para 
+    transparencias (canal alfa) en ciertas variaciones. Históricamente requería decodificadores 
+    específicos en entornos PC/Linux, aunque su adopción se ha estandarizado en la alta producción.}
+    \item \textcolor{pim}{\textbf{DivX / XviD:} Códecs clásicos que popularizaron la distribución 
+    de vídeo en resoluciones estándar a través de internet. XviD se presenta como la alternativa de 
+    código abierto a DivX.}
+\end{itemize}
+
+\subsubsection{\textcolor{pim}{Contenedores de Vídeo}}
+
+\textcolor{pim}{El contenedor es el ``recipiente'' que reúne y sincroniza todos los elementos codificados 
+(vídeo, audio, subtítulos, menús y metadatos) para su reproducción simultánea. Suelen identificarse por la 
+extensión del archivo. A continuación, se detallan los contenedores más relevantes del sector, con sus ventajas y 
+limitaciones~\cite{v-d-formato-video}:}
+
+\begin{itemize}
+    \item \textcolor{pim}{\textbf{MP4 (.mp4):} Es el formato más extendido, versátil y popular. 
+    Compatible con prácticamente cualquier dispositivo, sistema operativo y plataforma web. 
+    Ofrece una alta calidad con tamaños de archivo reducidos.}
+    \item \textcolor{pim}{\textbf{MOV (.mov):} Desarrollado por Apple (QuickTime), es un estándar en la edición 
+    profesional. Soporta pistas divididas, transparencias y efectos. Su principal desventaja es generar 
+    archivos muy pesados y tener compatibilidad limitada fuera del ecosistema Apple.}
+    \item \textcolor{pim}{\textbf{MKV (.mkv):} Contenedor de código abierto en tendencia. Su gran fortaleza 
+    es la capacidad de albergar múltiples códecs simultáneamente, numerosas pistas de audio, 
+    subtítulos y menús sin pérdida de datos en la compresión. En cambio, genera archivos de gran tamaño.}
+    \item \textcolor{pim}{\textbf{WEBM (.webm):} Formato de código abierto desarrollado por Google,
+    optimizado específicamente para HTML5. Se reproduce nativamente en navegadores sin necesidad de \textit{plugins}, 
+    ofreciendo tiempos de carga mínimos.}
+    \item \textcolor{pim}{\textbf{AVI (.avi):} Pionero desarrollado por Microsoft en 1995. 
+    Ofrece excelente calidad audiovisual, pero está obsoleto para los estándares actuales de streaming 
+    debido a sus enormes tamaños de archivo y la incapacidad de almacenar subtítulos de forma nativa.}
+    \item \textcolor{pim}{\textbf{WMV (.wmv):} Sucesor del AVI, supera al MP4 en capacidad de compresión y es 
+    ideal para la venta de vídeo digital gracias a su soporte para licencias (DRM~\cite{drm}). Sin embargo, tiene 
+    baja aceptación en reproductores.}
+    \item \textcolor{pim}{\textbf{AVCHD:} Formato de vídeo con alta definición, creado por Sony y Panasonic 
+    para videocámaras. Utiliza compresión H.264/MPEG-4 para lograr tamaños reducidos sin pérdida de datos, 
+    pero tiene una compatibilidad muy limitada sobre dispositivos reproductores.}
+\end{itemize}
+
+\subsubsection{\textcolor{pim}{Selección de formato}}
+
+\textcolor{pim}{La elección del formato adecuado en un flujo de trabajo depende del objetivo que se quiera 
+abordar en el proyecto. Para la distribución digital masiva, las plataformas han establecido directrices 
+claras para maximizar la eficiencia (véase el Cuadro~\ref{tab:eleccion-formato})~\cite{v-d-formato-video}}
+
+\vspace{0.5cm}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3cm}|p{3.5cm}|p{3cm}|p{5cm}|}
+\hline
+\textbf{Plataforma} & \textbf{Contenedor Rec.} & \textbf{Códec de Vídeo} & \textbf{Notas de Optimización} \\ \hline
+YouTube & MP4 & H.264 & Usar con códec de audio AAC-LC. \\ \hline
+Instagram & MP4 (soporta MOV) & H.264 & MP4 minimiza la pérdida de datos y tiempos de subida. \\ \hline
+Facebook & MP4 (soporta MOV) & H.264 & Prioriza MP4 por equilibrio peso/calidad. \\ \hline
+TikTok & MP4 & H.264 & Estándar nativo de la aplicación. \\ \hline
+Navegadores Web & WEBM o MP4 & VP8/VP9 o H.264 & WEBM permite incrustación directa en HTML5. \\ \hline
+\end{tabular}
+\caption{Recomendaciones de formato}
+\label{tab:eleccion-formato}
+\end{table}
+\vspace{0.5cm}
+
+
+\textcolor{pim}{La multitud de opciones obliga a los creadores a hacer más que simplemente elegir 
+una extensión. Deben diseñar un flujo de compresión donde el contenedor y el códec trabajen en sinergia 
+para satisfacer las demandas técnicas de la plataforma de destino.}
+
+
+
  \subsection{Postproducción}
  Por otro lado, la \textbf{postproducción} es una de las fases más determinantes en la creación y edición de vídeo, ya que en ella se da forma definitiva al material audiovisual grabado. Las posibilidades de la edición son infinitas y van únicamente sujetas a la creatividad y conocimientos del editor. Uno de los principales objetivos es conseguir obtener una narrativa mezclando las distintas vistas (Dancyger, 2014)\cite{conceptos-basicos-2}. La postproducción incluye también la incorporación de efectos visuales (VFX), como transiciones, composiciones digitales, títulos o animaciones, que amplían las posibilidades creativas del medio y facilitan la integración de elementos gráficos en el vídeo final (Watkinson, 2018)\cite{conceptos-basicos-4}.
 
