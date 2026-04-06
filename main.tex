@@ -29,9 +29,12 @@
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{float}
+\usepackage{import}
 \usepackage[spanish]{babel}
+\usepackage{caption}
 
-\definecolor{pim}{rgb}{0.0, 0.0, 1.0}
+\definecolor{pim}{rgb}{0.6980, 1.0, 1.0}
+\definecolor{importante}{rgb}{0.545, 0.0, 0.0}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \pgfplotsset{compat=1.18}
 \renewcommand\familydefault{\sfdefault}
@@ -110,8 +113,18 @@ Grado en Ingeniería Informática en Ingeniería del Software} \\ \vspace{1.25em
     
     % 4. Entornos y herramientas
     \input{4-Entornos-y-herramientas}
-    
+
+    \input{5-actividades}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% ANEXOS %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \appendix
+    \chapter{Manual de instalación DaVinci Resolve}
+    \input{10-Manual-instalacion}
+
     % 8. Referencias
     \input{8-Referencias}
+
 
 \end{document}
