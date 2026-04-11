@@ -4,14 +4,14 @@ La creación y edición de vídeo constituye uno de los pilares fundamentales de
 
 \subsection{Conceptos básicos}
 
-Para hablar de la edición de vídeo digital debemos de tener claros algunos de sus elementos esenciales. Como el \textbf{píxel}, la unidad mínima de información visual de la que se compone una imagen. La disposición y cantidad de píxeles determinan la \textbf{resolución}, un factor que determina la calidad del vídeo. Entre las resoluciones más habituales se encuentran HD (1280×720), Full HD (1920×1080) y 4K (3840×2160), ampliamente utilizadas en distintos contextos audiovisuales según las necesidades de calidad y rendimiento (Jack, 2019)\cite{conceptos-basicos-3}. 
+Para hablar de la edición de vídeo digital se deben tener claros algunos de sus elementos esenciales. Como el \textbf{píxel}, la unidad mínima de información visual de la que se compone una imagen. La disposición y cantidad de píxeles determinan la \textbf{resolución}, un factor que determina la calidad del vídeo. Entre las resoluciones más habituales se encuentran HD (1280×720), Full HD (1920×1080) y 4K (3840×2160), ampliamente utilizadas en distintos contextos audiovisuales según las necesidades de calidad y rendimiento (Jack, 2019)\cite{conceptos-basicos-3}. 
 
-Otros conceptos fundamentales son la \textbf{relación de aspecto}, que define la proporción entre el ancho y el alto de la imagen, 16:9, estándar en televisión y plataformas digitales, y 21:9 en producciones cinematográficas. O la \textbf{fluidez del movimiento}, el número de fotogramas por segundo (FPS). Valores como 24 FPS se asocian tradicionalmente al cine, mientras que 30 o 60 FPS son habituales en contenidos televisivos y digitales, especialmente en videojuegos o retransmisiones en directo. Normalmente, cuanto mayor sea la resolución y tasa de fotogramas de un vídeo, mayor será la calidad de este, así como el tamaño de este (véase Figura~\ref{fig:resoluciones-comunes}).
+Otros conceptos fundamentales son la \textbf{relación de aspecto}, que define la proporción entre el ancho y el alto de la imagen, 16:9, estándar en televisión y plataformas digitales, y 21:9 en producciones cinematográficas. O la \textbf{fluidez del movimiento}, el número de fotogramas por segundo (FPS). Valores como 24 FPS se asocian tradicionalmente al cine, mientras que 30 o 60 FPS son habituales en contenidos televisivos y digitales, especialmente en videojuegos o retransmisiones en directo. Normalmente, cuanto mayor sea la resolución y tasa de fotogramas de un vídeo, mayor será su calidad, así como su tamaño (véase Figura~\ref{fig:resoluciones-comunes}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{assets/Resoluciones.png}
-    \caption{Resoluciones comunes}
+    \caption[Resoluciones Comunes]{Resoluciones Comunes\\ \footnotesize Fuente: \cite{resoluciones-comunes}}
     \label{fig:resoluciones-comunes}
 \end{figure}
 
@@ -41,7 +41,7 @@ y descomprime la información (véase Figura~\ref{fig:codec}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{assets/codec.jpeg}
-    \caption{Funcionamiento general Códec}
+    \caption[Códec]{Funcionamiento general Códec\\ \footnotesize Fuente: \cite{funcionamiento-codec}}
     \label{fig:codec}
 \end{figure}
 
@@ -143,17 +143,19 @@ para satisfacer las demandas técnicas de la plataforma de destino.
  \begin{figure} [H]
     \centering
     \includegraphics[width=0.5\linewidth]{assets/editor.jpg}
-    \caption{Editor de vídeo}
+    \caption[Editor]{Editor de vídeo\\ \footnotesize Fuente: \cite{editor-video}}
     \label{fig:editor-de-video}
 \end{figure}
  
+\subsubsection{Pistas de vídeo}
  Las pistas de vídeo permiten superponer imágenes, añadir títulos o incorporar recursos gráficos, mientras que las pistas de audio posibilitan separar diálogos, música y efectos sonoros para tratarlos de forma individual. Esta estructura por capas proporciona un mayor control técnico y creativo, ya que permite ajustar sincronización, volumen, transiciones y efectos sin alterar el resto del proyecto. En conjunto, estos conceptos básicos constituyen la base operativa sobre la que se construyen técnicas más avanzadas de edición y efectos visuales dentro del flujo de trabajo de postproducción.
 
+\subsubsection{Máscaras}
 Las \textbf{máscaras} son un concepto fundamental en la postproducción de vídeo, ya que de su uso dependen una gran cantidad de técnicas. Son herramientas que permiten delimitar una zona específica del encuadre para aplicar sobre ella un efecto, corrección o modificación sin afectar al resto de la imagen. Técnicamente, una máscara define una región mediante una forma geométrica o un trazado personalizado que puede ajustarse manualmente y animarse a lo largo del tiempo mediante fotogramas clave, lo que posibilita que dicha región siga el movimiento de un objeto dentro del plano. Su uso es fundamental para procesos de composición digital, corrección de color selectiva y efectos visuales. Por ejemplo, permiten realizar una congelación parcial del vídeo (manteniendo inmóvil un sujeto mientras el entorno continúa en movimiento) (véase Figura~\ref{fig:congelacion}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{assets/maxresdefault.jpg}
-    \caption{Efecto de congelación parcial - Reddit Filmakers}
+    \caption[Congelacion]{Efecto de congelación parcial - Reddit Filmakers\\ \footnotesize Fuente: Desconocida}
     \label{fig:congelacion}
 \end{figure}
 
@@ -161,19 +163,19 @@ Aplicar slow motion selectivo únicamente a una parte del encuadre, ocultar elem
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{assets/Clonacion.jpg}
-    \caption{Efecto clonación - Youtube:Carlos Lang}
+    \caption[Clonacion]{Efecto clonación\\ \footnotesize Fuente: Youtube:Carlos Lang}
     \label{fig:clonacion}
 \end{figure}
 Asimismo, las máscaras son esenciales en técnicas más avanzadas como el seguimiento de movimiento (motion tracking) y la composición por capas, donde el control preciso de las regiones de la imagen resulta clave para obtener resultados realistas.
 
-
- Como rencien comentábamos, las máscaras influyen en el etalonaje y la corrección de \textbf{color}. Estas constituyen fases fundamentales dentro de la postproducción audiovisual. Responden a una necesidad técnica de la imagen como a la construcción estética y narrativa del producto final. El etalonaje se trata del proceso creativo en el que se aplican ajustes de color en una imagen o vídeo para hacer más atractiva y mejorar la calidad visual de la producción (véase Figura~\ref{fig:etalonaje}).
+\subsubsection{Etalonaje y corrección de color}
+Como ya se ha comentado, las máscaras influyen en el etalonaje y la corrección de \textbf{color}. Estas constituyen fases fundamentales dentro de la postproducción audiovisual. Responden a una necesidad técnica de la imagen como a la construcción estética y narrativa del producto final. El etalonaje se trata del proceso creativo en el que se aplican ajustes de color en una imagen o vídeo para hacer más atractiva y mejorar la calidad visual de la producción (véase Figura~\ref{fig:etalonaje}).
 
 Los creadores conceden una gran dedicación al etalonaje ya que con esta técnica se pueden añadir elementos dramáticos o enfatizar estados de ánimo a una obra. La evolución del etalonaje, también conocido como grading, ha sido posible gracias a herramientas digitales que han permitido que sea más asequible para cualquier tipo de producción, y ha definido notablemente el estilo de las películas de los últimos años.
 \begin{figure}[H]
      \centering
      \includegraphics[width=0.5\linewidth]{assets/etalonaje-y-correcion-de-color-blog-ejemplos.jpg}
-     \caption{Etalonaje del color - La La Land (2016)}
+     \caption[Etalonaje]{Etalonaje del color\\ \footnotesize Fuente: La La Land (2016)}
      \label{fig:etalonaje}
  \end{figure}
 
@@ -182,20 +184,21 @@ Los creadores conceden una gran dedicación al etalonaje ya que con esta técnic
    \begin{figure}[H]
      \centering
      \includegraphics[width=0.5\linewidth]{assets/Color.jpg}
-     \caption{Corrección del color - La La Land (2016)}
+     \caption[Correccion Color]{Corrección del color\\ \footnotesize Fuente: La La Land (2016)}
      \label{fig:la-la-land}
  \end{figure}
  
  Mientras que la corrección de color se centra en equilibrar parámetros como la exposición, el contraste, la temperatura de color y la saturación para garantizar coherencia visual entre planos, el etalonaje persigue una intención expresiva, definiendo atmósferas, estilos y emociones mediante el tratamiento cromático. En la actualidad, estas técnicas han evolucionado significativamente gracias al desarrollo de herramientas digitales avanzadas que permiten un control preciso sobre curvas, nodos, máscaras y espacios de color, consolidándose como un elemento clave en producciones cinematográficas, televisivas y de contenido digital.
 
- Como ya hemos mencionado, \textbf{los efectos visuales (VFX)} constituyen uno de los pilares fundamentales de la postproducción audiovisual contemporánea. Ya que permiten la creación, modificación o integración de elementos visuales que no pueden capturarse directamente durante el rodaje, evitando así, situaciones peligrosas o costes innecesarios. Los VFX combinan todo tipo de técnicas de procesamiento digital de la imagen, composición por capas, animación y simulación. Se utilizan tanto en intervenciones sutiles (como la eliminación de objetos no deseados) hasta la creación de entornos completamente digitales, criaturas generadas por ordenador o simulaciones físicas complejas.
+\subsubsection{Efectos visuales VFX}
+\textbf{Los efectos visuales (VFX)} constituyen uno de los pilares fundamentales de la postproducción audiovisual contemporánea. Ya que permiten la creación, modificación o integración de elementos visuales que no pueden capturarse directamente durante el rodaje, evitando así, situaciones peligrosas o costes innecesarios. Los VFX combinan todo tipo de técnicas de procesamiento digital de la imagen, composición por capas, animación y simulación. Se utilizan tanto en intervenciones sutiles (como la eliminación de objetos no deseados) hasta la creación de entornos completamente digitales, criaturas generadas por ordenador o simulaciones físicas complejas.
 
  Uno de los efectos visuales más comunes es el \textbf{ChromaKey}, donde el el fondo y el primer término de la imagen han sido rodados de forma independiente. Este proceso no es nada nuevo y lo que ha cambiado respecto a su forma tradicional ha sido que ahora se ruedan en analógico o digital.
  Pero como podemos ver en la Figura~\ref{fig:mary-poppins} (Mary Poppins, donde se utilizo el sistema de croma con lámparas de vapor de sodio, técnica utilizada desde los inicios del cine)\cite{chromakey}.
 \begin{figure}[H]
      \centering
      \includegraphics[width=0.5\linewidth]{assets/marypoppins.jpg}
-     \caption{Set de grabación de Mary Poppins}
+     \caption[Grabacion Mary Poppins]{Set de grabación de Mary Poppins\\ \footnotesize Fuente: \cite{set-mary-poppins}}
      \label{fig:mary-poppins}
  \end{figure}
 
@@ -204,7 +207,7 @@ Los creadores conceden una gran dedicación al etalonaje ya que con esta técnic
  \begin{figure}[H]
      \centering
      \includegraphics[width=0.5\linewidth]{assets/fuego.jpg}
-     \caption{Ejemplo de efecto fuego en greenscreen}
+     \caption[Gree Screen]{Ejemplo de efecto fuego en greenscreen\\ \footnotesize Fuente: \cite{green-screen-fire}}
      \label{fig:greenscreen}
  \end{figure}
 
@@ -214,7 +217,7 @@ Los creadores conceden una gran dedicación al etalonaje ya que con esta técnic
 \begin{figure}[H]
      \centering
      \includegraphics[width=0.5\linewidth]{assets/ledvolumes.jpg}
-     \caption{Set de grabación The Mandalorian}
+     \caption[Mandalorian]{Set de grabación The Mandalorian\\ \footnotesize Fuente: \cite{mandalorian}}
      \label{fig:mandalorian}
  \end{figure}
 
@@ -222,12 +225,12 @@ Tambien popular en esta clase de producciones es el uso del \textbf{CGI (Compute
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{assets/cgi.jpg}
-    \caption{Uso de CGI en Marvel}
+    \caption[CGI]{Uso de CGI en Marvel\\ \footnotesize Fuente: \cite{cgi}}
     \label{fig:cgi-marvel}
 \end{figure}
 
 \subsection{Actualidad}
-A día de hoy es imposible hablar sobre creación de vídeo sin mencionar a las IA generativas. Capaces de transformar unas pocas líneas de texto en clips profesionales, ahorrando tiempo y costes en producción. A su vez crece una fuerte crítica sobre el uso de esta, ya que se basa en patrones, datos previos e incluso en haberla entrenado con contenidos ya existentes. Esto hace que rara vez aporte un enfoque único o creativo. Un vídeo con IA puede cumplir con la estructura básica, pero difícilmente transmitirá la esencia de una marca, su personalidad o sus valores diferenciales. Entrando aún más en la ética de usar la IA, es el impacto que tiene en el empleo dentro del sector audiovisual. La creatividad humana no solo aporta un resultado estético, también genera trabajo en toda una industria cultural. Usar IA de forma indiscriminada va hacer que se acaben desvalorizando estos oficios\cite{ia_video}.
+A día de hoy es imposible hablar sobre creación de vídeo sin mencionar a las IA generativas. Capaces de transformar unas pocas líneas de texto en clips profesionales, ahorrando tiempo y costes en producción. A su vez crece una fuerte crítica sobre el uso de esta, ya que se basa en patrones, datos previos e incluso en haberla entrenado con contenidos ya existentes. Esto hace que rara vez aporte un enfoque único o creativo. Un vídeo con IA puede cumplir con la estructura básica, pero difícilmente transmitirá la esencia de una marca, su personalidad o sus valores diferenciales. Entrando aún más en la ética de usar la IA, es el impacto que tiene en el empleo dentro del sector audiovisual. La creatividad humana no solo aporta un resultado estético, también genera trabajo en toda una industria cultural. Usar IA de forma indiscriminada puede probocar una desvalorizando estos oficios\cite{ia_video}.
 
 En conclusión, la creación y edición de vídeo constituyen un campo interdisciplinar que integra fundamentos técnicos del procesamiento digital de la imagen y el sonido con toda clase de fines. A lo largo del desarrollo tecnológico, herramientas como el montaje no lineal, el CGI, el chroma key o los sistemas de producción virtual han ampliado de forma significativa las posibilidades creativas del medio. No obstante, este ámbito esta sujeto a las limitaciones técnicas y operativas, tales como la alta demanda de recursos computacionales, la necesidad de hardware especializado, la complejidad de los flujos de trabajo y la constante actualización tecnológica que exige formación continua. Asimismo, la evolución de la producción audiovisual implica la aparición de múltiples perfiles profesionales especializados —editores, coloristas, técnicos de sonido, artistas de VFX, animadores 3D o supervisores de postproducción— que trabajan de forma coordinada en entornos colaborativos. Y con la llegada de la IA, se abren muchas posibilidades y cambios por llegar a este sector. En este contexto, el conocimiento de los fundamentos teóricos y técnicos analizados en el presente estado del arte resulta esencial para comprender los procesos implicados en la creación de contenido audiovisual y para abordar con rigor el desarrollo del proyecto planteado.
 
@@ -236,13 +239,12 @@ En el ámbito académico y de investigación, cabe destacar ciertos proyectos en
 generan día a día una nueva manera de pensar y desarrollar herramientas para la creación y edición 
 de vídeo.
 
-Uno de los más influyentes actualmente es el trabajo \textit{Investigating the Effectiveness 
-of Cross-Attention to Unlock Zero-Shot Editing of Text-to-Video Diffusion Models}, analizando el papel 
+Uno de los más influyentes actualmente es el trabajo de \textbf{Motamed, Wouter y Luck}~\cite{Motamed_2024_CVPR}, analizando el papel 
 de las capas de atención cruzada (véase Figura~\ref{fig:atencion-cruzada}) en modelos de difusión-texto-a-video (T2V) y estudia si las 
 técnicas de edición desarrolladas previamente en el dominio texto-a-imagen pueden transladarse al formato 
 de vídeo sin necesidad de reentrenamiento de los modelos. 
 
-El atrículo divulgativo parte de la idea de que, en modelos texto-a-imagen, la atención cruzada desempeña 
+El atrículo científico parte de la idea de que, en modelos texto-a-imagen, la atención cruzada desempeña 
 un papel fundamental en la determinación de la forma, el tamaño y la localización de los objetos, además de 
 garantizar coherencia en los prompts textuales. A partir de esa base, los autores investigan si la 
 manipulación de mapas de atención cruzada (véase Figura~\ref{fig:atencion-cruzada}) en modelos T2V permiten controlar atributos 
@@ -261,13 +263,13 @@ de vídeo mediante difusión \cite{Motamed_2024_CVPR}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/atencion-cruzada.png}
-    \caption{Representación visual del concepto \textbf{atención cruzada}}
+    \caption[Representacion cruzada]{Representación visual del concepto \textbf{atención cruzada}\\ \footnotesize Fuente: \cite{Motamed_2024_CVPR}}
     \label{fig:atencion-cruzada}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/orientacion-pasada.png}
-    \caption{Representación visual del concepto \textbf{orientación pasada}}
+    \caption{[Orientacion pasada]Representación visual del concepto \textbf{orientación pasada}\\ \footnotesize Fuente: \cite{Motamed_2024_CVPR}}
     \label{fig:orientación pasada}
 \end{figure}
